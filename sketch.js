@@ -34,9 +34,11 @@ function preload(){
     bjm = loadSound("Sounds/bjm.mp3");
     elevator = loadSound("Sounds/elevator.mp3");
 
-
+ 
 }
 function setup() {
+
+  alert(" JUSTIN THE ROBBER \n OBJECTIVE - FIND THE MONEY AND ESCAPE \n THE BUILDING WITHIN THE TIME LIMIT :D \n 🡺 = MOVE RIGHT \n 🡸 = MOVE LEFT \n SPACE = PICK UP ITEM \n 🡹 = MOVE UP STAIRS \n 🡻 = MOVE DOWN STAIRS \n F5 = RESTART ")
   createCanvas(displayWidth-20,displayHeight-110);
   //bob spawn = 120,600
   bob = createSprite(110,585, 50, 50);
@@ -146,7 +148,7 @@ function draw() {
     text(score-points,1000,400);
     console.log(score-points);
     gameWinSound.play();
-    //setLoop(false);
+    setLoop(false);
   }
   if(bob.isTouching(end)){
     
@@ -245,6 +247,7 @@ function draw() {
   }
   if(bob.isTouching(vault) && keyDown("SPACE")){
       hasMoney=true;
+      alert("YOU HAVE MONEY , FIND THE LIFT KEY ( HINT: WHERE YOU FIND WOOD BURNING BRIGHT )",0,25);
   }
   if(bob.isTouching(lift_button1)&&keyDown(UP_ARROW)&&gameState==="Stage3"){
     bob.x=1160;
@@ -259,6 +262,7 @@ function draw() {
   if(bob.isTouching(note)&&keyDown("SPACE")){
     noteTaken=true;
     note.visible=false;
+    alert("YOU CAN TELEPORT THROUGH A CERTAIN WALL BY STANDING BY IT FOR 10 SEC",0,25);
   }
 
 
@@ -282,5 +286,6 @@ function keyPressed(){
     if((bob.x>915&&bob.x<1020)&&(bob.y<520&&bob.y>410)&&gameState==="Stage2"&&keyCode===32){
       gameState="Stage3";
       hasMoney=false;
+      alert("KEY FOUND , NOW ESCAPE",0,55);
     }
 }
